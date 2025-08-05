@@ -30,9 +30,21 @@ public class CreateAccountTests extends TestBase {
         app.getUser().clickOnLoginLink();
         app.getUser().fillLoginRegisterForm(new User()
                 .setEmail("manuel@gm.com")
-                .setPassword("Manuel1234@"));;
+                .setPassword("Manuel1234@"));
         app.getUser().clickOnRegistrationButton();
         Assert.assertTrue(app.getUser().isAlertPresent());
     }
+
+    @Test
+    public void newUserRegistrationWithoutEmailNegativeTest() {
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillLoginRegisterForm(new User()
+                .setPassword("Manuel1234@"));
+        app.getUser().clearEmailField();
+        app.getUser().clickOnRegistrationButton();
+        Assert.assertTrue(app.getUser().isAlertPresent());
+    }
+
+
 
 }
