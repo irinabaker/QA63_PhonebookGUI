@@ -16,3 +16,5 @@ gradlew/
 /gradle
 *.log
 *.png
+
+.DS_Store

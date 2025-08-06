@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.phonebook.tests.AddContactTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-06T07:46:02" hostname="iras-Laptop.local" time="1.239">
+  <properties/>
+  <testcase name="addContactPositiveTest" classname="com.phonebook.tests.AddContactTests" time="1.239"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

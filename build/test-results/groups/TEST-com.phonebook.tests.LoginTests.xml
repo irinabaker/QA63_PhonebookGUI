@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.phonebook.tests.LoginTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-08-05T10:43:09.340Z" hostname="DESKTOP-IDPAKS2" time="2.308">
-  <properties/>
-  <testcase name="loginNegativeWithoutEmailTest" classname="com.phonebook.tests.LoginTests" time="1.469"/>
-  <testcase name="loginNegativeWithoutPasswordTest" classname="com.phonebook.tests.LoginTests" time="0.831"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
