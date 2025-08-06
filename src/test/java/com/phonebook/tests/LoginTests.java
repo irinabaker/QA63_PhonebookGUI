@@ -1,9 +1,11 @@
 package com.phonebook.tests;
 
 import com.phonebook.core.TestBase;
+import com.phonebook.data.UserData;
 import com.phonebook.models.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import static com.phonebook.core.ApplicationManager.softAssert;
@@ -17,12 +19,13 @@ public class LoginTests extends TestBase {
         }
     }
 
+    @Parameters({"email","password"})
     @Test(priority = 1)
-    public void loginPositiveTest() {
+    public void loginPositiveTest(String email, String password) {
         app.getUser().clickOnLoginLink();
         app.getUser().fillLoginRegisterForm(new User()
-                .setEmail("manuel@gm.com")
-                .setPassword("Manuel1234$"));
+                .setEmail(email)
+                .setPassword(password));
         app.getUser().clickOnLoginButton();
         Assert.assertTrue(app.getUser().isSignOutButtonPresent());
     }
@@ -32,7 +35,7 @@ public class LoginTests extends TestBase {
         app.getUser().clickOnLoginLink();
         app.getUser().clearEmailField();
         app.getUser().fillLoginRegisterForm(new User()
-                .setPassword("Manuel1234$"));
+                .setPassword(UserData.PASSWORD));
         app.getUser().clearEmailField();
         app.getUser().clickOnLoginButton();
        softAssert.assertTrue(app.getUser().isAlertPresent());
@@ -44,7 +47,7 @@ public class LoginTests extends TestBase {
     public void loginNegativeWithoutPasswordTest() {
         app.getUser().clickOnLoginLink();
         app.getUser().fillLoginRegisterForm(new User()
-                .setEmail("manuel@gm.com"));
+                .setEmail(UserData.EMAIL));
         app.getUser().clearPasswordField();
         app.getUser().clickOnLoginButton();
        softAssert.assertTrue(app.getUser().isAlertPresent());
