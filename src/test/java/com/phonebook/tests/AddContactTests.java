@@ -75,6 +75,7 @@ public class AddContactTests extends TestBase {
     @AfterMethod
     public void postCondition() {
         while (!app.getContact().isContactListEmpty()) {
+
             app.getContact().removeContact();
         }
     }
