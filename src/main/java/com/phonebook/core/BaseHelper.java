@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 
 public class BaseHelper {
 
@@ -68,5 +69,13 @@ public class BaseHelper {
             throw new RuntimeException(e);
         }
         return screenshot.getAbsolutePath();
+    }
+
+    public boolean verifyText(String text, By locator) {
+        List<WebElement> contacts = driver.findElements(locator);
+        for (WebElement element: contacts) {
+            if (element.getText().contains(text)) return true;
+        }
+        return false;
     }
 }

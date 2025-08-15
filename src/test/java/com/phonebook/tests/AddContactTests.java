@@ -5,6 +5,9 @@ import com.phonebook.data.UserData;
 import com.phonebook.models.Contact;
 import com.phonebook.models.User;
 import com.phonebook.utils.MyDataProvider;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,6 +15,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.*;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -65,12 +69,13 @@ public class AddContactTests extends TestBase {
         app.getContact().clickOnAddLink();
         app.getContact().fillContactForm(contact);
         app.getContact().clickOnSaveButton();
-        Assert.assertTrue(app.getContact().isContactCreated(contact.getName()));
+        Assert.assertTrue(app.getContact().isContactCreatedByPhone(contact.getPhone()));
     }
 
     @AfterMethod
     public void postCondition() {
-        app.getContact().removeContact();
+        while (!app.getContact().isContactListEmpty()) {
+            app.getContact().removeContact();
+        }
     }
-
 }
